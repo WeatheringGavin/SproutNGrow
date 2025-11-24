@@ -14,6 +14,7 @@ body {
     padding-inline: max(300px, 10%);
     box-sizing: border-box;
 }
+/* Header */
 
 header, footer {
     background-color: #eaf9cd;
@@ -28,27 +29,29 @@ header, footer {
     font-weight: bold;
 }
 
+
+/* Main Canvas */
+
 main {
     padding: 20px;
     text-align: center;
-    position: relative; /* establish stacking context for background layer */
+    position: relative; 
 }
 
-/* Background layer with reduced opacity only for the image */
+/* Background layer*/
 main::before {
     content: "";
     position: absolute;
-    inset: 0; /* top:0; right:0; bottom:0; left:0; */
+    inset: 0;
     background-image: url("../images/texture-background.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    opacity: 0.1; /* 10% opacity for the background image */
-    pointer-events: none; /* allow clicks through the background */
+    opacity: 0.1; 
+    pointer-events: none;
     z-index: 0;
 }
 
-/* Ensure main content sits above the background layer */
 main > * {
     position: relative;
     z-index: 1;
@@ -120,6 +123,7 @@ main > * {
     margin-left: 12px;
 }
 
+/* PlantShopHome */
 .planthome-img {
     width: 14em;
     height: 14em;
