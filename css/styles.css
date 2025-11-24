@@ -31,6 +31,27 @@ header, footer {
 main {
     padding: 20px;
     text-align: center;
+    position: relative; /* establish stacking context for background layer */
+}
+
+/* Background layer with reduced opacity only for the image */
+main::before {
+    content: "";
+    position: absolute;
+    inset: 0; /* top:0; right:0; bottom:0; left:0; */
+    background-image: url("../images/texture-background.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    opacity: 0.1; /* 10% opacity for the background image */
+    pointer-events: none; /* allow clicks through the background */
+    z-index: 0;
+}
+
+/* Ensure main content sits above the background layer */
+main > * {
+    position: relative;
+    z-index: 1;
 }
 .slideshow{
     width: 100%;
